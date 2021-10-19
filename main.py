@@ -26,7 +26,7 @@ class ConwayCells(Tk):
         for x in range(20):
             for y in range(20):
                 self.neighbors[(x, y)] = 0
-                self.conwayButtons[(x, y)] = Button(master, width=1, text=" ", bg = "light grey", command = partial(self.changeCell, (x,y)))
+                self.conwayButtons[(x, y)] = Button(master, width=1, text=" ", bg = "white", command = partial(self.changeCell, (x,y)))
                 self.conwayButtons[(x, y)].grid(row = x+1, column = y)
 
                 self.identities[(x, y)] = self.conwayButtons[(x, y)]
@@ -76,11 +76,11 @@ class ConwayCells(Tk):
     def changeCell(self, x):
         """Changes a cell from an alive state to a dead state OR a dead one to an alive one"""
         bname = (self.identities[x])
-        if not (bname["bg"] == "red"):
-            bname.configure(bg="red")
+        if not (bname["bg"] == "black"):
+            bname.configure(bg="black")
             self.state[x] = True
         else:
-            bname.configure(bg = "light grey")
+            bname.configure(bg = "white")
             self.state[x] = False
  
         for i in self.state:
